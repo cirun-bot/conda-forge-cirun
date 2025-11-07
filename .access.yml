@@ -34,12 +34,9 @@ policies:
     users_from_json: https://raw.githubusercontent.com/Quansight/open-gpu-server/main/access/conda-forge-users.json
   - id: pytorch-cpu-feedstock-policy
     repo: pytorch-cpu-feedstock
-    roles:
-      - admin
-      - maintain
-      - write
+    teams:
+      - pytorch-cpu
     pull_request: true
-    users_from_json: https://raw.githubusercontent.com/Quansight/open-gpu-server/main/access/conda-forge-users.json
   - id: cutlass-feedstock-policy
     repo: cutlass-feedstock
     roles:
@@ -237,7 +234,6 @@ policies:
     pull_request: true
     users_from_json: https://raw.githubusercontent.com/Quansight/open-gpu-server/main/access/conda-forge-users.json
 access_control:
-  # Linux: GPU
   - resource: cirun-openstack-gpu-large
     policies:
       - astra-toolbox-feedstock-policy
@@ -265,7 +261,6 @@ access_control:
     policies:
       - cf-autotick-bot-test-package-policy
       - pytorch-cpu-feedstock-policy
-  # Linux: CPU
   - resource: cirun-openstack-cpu-medium
     policies:
       - cf-autotick-bot-test-package-policy
@@ -308,7 +303,6 @@ access_control:
       - ray-packages-feedstock-policy
       - tensorflow-feedstock-policy
       - vllm-feedstock-policy
-  # Windows
   - resource: cirun-azure-windows-2xlarge
     policies:
       - libmagma-feedstock-windows-policy
@@ -319,10 +313,10 @@ access_control:
       - libmagma-feedstock-windows-policy
       - onnxruntime-feedstock-policy
       - pytorch-cpu-feedstock-windows-policy
-  # OSX
   - resource: cirun-macos-m4-large
     policies:
       - gstreamer-feedstock-osx-m4-policy
       - pixi-pack-feedstock-osx-m4-policy
       - temporalio-cli-feedstock-osx-m4-policy
       - tensorflow-feedstock-osx-m4-policy
+      - pytorch-cpu-feedstock-policy
