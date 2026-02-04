@@ -18,7 +18,6 @@ policies:
     users_from_json: https://raw.githubusercontent.com/Quansight/open-gpu-server/main/access/conda-forge-users.json
   - id: clangdev-feedstock-policy
     repo: clangdev-feedstock
-    pull_request: true
     roles:
       - admin
       - maintain
@@ -28,6 +27,7 @@ policies:
       - h-vetinari
       - isuruf
       - xhochy
+    pull_request: true
   - id: conda-forge-ci-setup-feedstock-policy
     repo: conda-forge-ci-setup-feedstock
     roles:
@@ -105,7 +105,6 @@ policies:
     pull_request: true
   - id: llvmdev-feedstock-policy
     repo: llvmdev-feedstock
-    pull_request: true
     roles:
       - admin
       - maintain
@@ -115,6 +114,7 @@ policies:
       - h-vetinari
       - isuruf
       - xhochy
+    pull_request: true
   - id: mongodb-feedstock-policy
     repo: mongodb-feedstock
     roles:
@@ -305,8 +305,15 @@ policies:
       - write
     pull_request: true
     users_from_json: https://raw.githubusercontent.com/Quansight/open-gpu-server/main/access/conda-forge-users.json
+  - id: ambertools-feedstock-policy
+    repo: ambertools-feedstock
+    roles:
+      - admin
+      - maintain
+      - write
+    pull_request: true
+    users_from_json: https://raw.githubusercontent.com/Quansight/open-gpu-server/main/access/conda-forge-users.json
 access_control:
-  # Linux: GPU
   - resource: cirun-openstack-gpu-large
     policies:
       - astra-toolbox-feedstock-policy
@@ -337,7 +344,6 @@ access_control:
     policies:
       - cf-autotick-bot-test-package-policy
       - pytorch-cpu-feedstock-gpu-policy
-  # Linux: CPU
   - resource: cirun-openstack-cpu-medium
     policies:
       - cf-autotick-bot-test-package-policy
@@ -359,6 +365,7 @@ access_control:
       - torchao-feedstock-policy
       - viskores-feedstock-policy
       - vllm-feedstock-policy
+      - ambertools-feedstock-policy
   - resource: cirun-openstack-cpu-xlarge
     policies:
       - cf-autotick-bot-test-package-policy
@@ -391,7 +398,6 @@ access_control:
       - ray-packages-feedstock-policy
       - tensorflow-feedstock-policy
       - vllm-feedstock-policy
-  # Windows
   - resource: cirun-azure-windows-2xlarge
     policies:
       - clangdev-feedstock-policy
@@ -406,7 +412,6 @@ access_control:
       - libmagma-feedstock-windows-policy
       - onnxruntime-feedstock-policy
       - pytorch-cpu-feedstock-cpu-policy
-  # OSX
   - resource: cirun-macos-m4-large
     policies:
       - gstreamer-feedstock-osx-m4-policy
