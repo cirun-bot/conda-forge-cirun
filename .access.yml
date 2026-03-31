@@ -16,7 +16,6 @@ policies:
     pull_request: true
   - id: clangdev-feedstock-policy
     repo: clangdev-feedstock
-    pull_request: true
     roles:
       - admin
       - maintain
@@ -26,6 +25,7 @@ policies:
       - h-vetinari
       - isuruf
       - xhochy
+    pull_request: true
   - id: conda-forge-ci-setup-feedstock-policy
     repo: conda-forge-ci-setup-feedstock
     roles:
@@ -97,16 +97,15 @@ policies:
     pull_request: true
   - id: llamacpp-feedstock-policy
     repo: llama.cpp-feedstock
-    pull_request: true
     roles:
       - admin
       - maintain
       - write
     users:
       - traversaro
+    pull_request: true
   - id: llvmdev-feedstock-policy
     repo: llvmdev-feedstock
-    pull_request: true
     roles:
       - admin
       - maintain
@@ -116,6 +115,7 @@ policies:
       - h-vetinari
       - isuruf
       - xhochy
+    pull_request: true
   - id: mongodb-feedstock-policy
     repo: mongodb-feedstock
     roles:
@@ -197,10 +197,8 @@ policies:
     pull_request: true
   - id: qt-webengine-feedstock-policy
     repo: qt-webengine-feedstock
-    roles:
-      - admin
-      - maintain
-      - write
+    teams:
+      - qt-webengine
     pull_request: true
   - id: ray-packages-feedstock-policy
     repo: ray-packages-feedstock
@@ -292,7 +290,6 @@ policies:
       - write
     pull_request: true
 access_control:
-  # Windows
   - resource: cirun-azure-windows-2xlarge
     policies:
       - clangdev-feedstock-policy
@@ -313,10 +310,10 @@ access_control:
       - libmagma-feedstock-windows-policy
       - onnxruntime-feedstock-policy
       - pytorch-cpu-feedstock-cpu-policy
+      - qt-webengine-feedstock-policy
   - resource: cirun-azure-windows-4xlarge-ng
     policies:
       - pytorch-cpu-feedstock-cpu-policy
-  # OSX
   - resource: cirun-macos-m4-large
     policies:
       - gstreamer-feedstock-osx-m4-policy
@@ -326,3 +323,4 @@ access_control:
       - temporalio-cli-feedstock-osx-m4-policy
       - tensorflow-feedstock-osx-m4-policy
       - tinygrad-feedstock-policy
+      - qt-webengine-feedstock-policy
